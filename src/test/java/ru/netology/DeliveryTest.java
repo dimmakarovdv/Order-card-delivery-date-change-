@@ -37,25 +37,21 @@ class DeliveryTest {
         $("[data-test-id=agreement]").click();
         $(".button").click();
 
-        // Проверка успешного планирования
         $("[data-test-id=success-notification]")
                 .shouldBe(visible, Duration.ofSeconds(20))
                 .shouldHave(text("Успешно!"));
         $("[data-test-id=success-notification] .notification__content")
                 .shouldHave(text("Встреча успешно запланирована на " + firstMeetingDate));
 
-        // Перепланирование встречи
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(secondMeetingDate);
         $(".button").click();
 
-        // Подтверждение перепланирования
         $("[data-test-id=replan-notification]")
                 .shouldBe(visible, Duration.ofSeconds(20))
                 .shouldHave(text("Необходимо подтверждение"));
         $("[data-test-id=replan-notification] .button").click();
 
-        // Проверка успешного перепланирования
         $("[data-test-id=success-notification]")
                 .shouldBe(visible, Duration.ofSeconds(20))
                 .shouldHave(text("Успешно!"));
