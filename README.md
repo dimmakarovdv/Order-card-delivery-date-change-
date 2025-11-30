@@ -1,1 +1,1 @@
-[![Java CI with Gradle](https://github.com/dimmakarovdv/Order-card-delivery-date-change-/actions/workflows/gradle.yml/badge.svg)](https://github.com/dimmakarovdv/Order-card-delivery-date-change-/actions/workflows/gradle.yml)
+c:\Users\Admin\Desktop\2025-11-30_22-17-30.png
