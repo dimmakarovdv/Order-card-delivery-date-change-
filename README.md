@@ -1,1 +1,1 @@
-![Oтчет в Allure](screenshots/allreReport.png)
+![Oтчет в Allure](screenshots/отчет.png)
