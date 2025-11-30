@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.12.0'
 }
 
 group 'ru.netology'
@@ -9,9 +10,12 @@ java {
     sourceCompatibility = 11
 }
 
-// кодировка файлов (если используете русский язык в файлах)
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
+
+allure {
+    version = "2.27.0"
+}
 
 repositories {
     mavenCentral()
@@ -24,13 +28,11 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.36'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
     testImplementation 'org.slf4j:slf4j-simple:2.0.3'
+    testImplementation 'io.qameta.allure:allure-selenide:2.27.0'
 }
 
 test {
     useJUnitPlatform()
-    // в тестах, вызывая `gradlew test -Dselenide.headless=true` будем передавать этот параметр в JVM (где его подтянет Selenide)
-    // свойство selenide.headless используется в проектах на основе Selenide для передачи значения параметра в JVM
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    // свойство chromeoptions.prefs используется для задания настроек браузера в проектах на основе Selenide, выключаем менеджер паролей
     systemProperty 'chromeoptions.prefs', System.getProperty('chromeoptions.prefs', "profile.password_manager_leak_detection=false")
 }
